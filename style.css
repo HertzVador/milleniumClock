@@ -1,0 +1,32 @@
+:root {
+  color-scheme: dark;
+  --background: #0e1016;
+  --foreground: #e8ecf4;
+  --muted: #9aa3b5;
+  font-family: Consolas, "Liberation Mono", monospace;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; height: 100vh; height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+header { display: flex; align-items: flex-start; justify-content: space-between; padding: 14px 16px 6px; gap: 12px; }
+#time { display: block; font-size: 24px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#date { margin-top: 5px; font-size: 13px; color: var(--muted); }
+main { min-height: 0; min-width: 0; display: grid; place-items: center; overflow: hidden; }
+canvas { display: block; }
+footer { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 14px; color: var(--muted); font-size: 12px; gap: 12px; }
+button, input { font: inherit; color: var(--foreground); background: #191e28; border: 1px solid #485165; border-radius: 4px; }
+button { cursor: pointer; padding: 8px 10px; min-height: 36px; }
+button:hover { background: #28313e; }
+button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid #2fd6c6; outline-offset: 3px; }
+#fullscreen { width: 38px; height: 38px; display: grid; place-items: center; background: transparent; border-color: transparent; flex-shrink: 0; }
+.fullscreen-icon { width: 18px; height: 18px; background: linear-gradient(currentColor, currentColor) left top / 6px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 6px no-repeat, linear-gradient(currentColor, currentColor) right top / 6px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 6px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 6px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 6px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 6px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 6px no-repeat; }
+details { position: relative; }
+summary { cursor: pointer; padding: 7px 0 7px 10px; }
+form { position: absolute; bottom: 38px; right: 0; width: min(290px, calc(100vw - 32px)); padding: 16px; background: #151922; border: 1px solid #485165; border-radius: 6px; box-shadow: 0 8px 30px #0008; display: grid; gap: 12px; }
+label { display: grid; gap: 5px; }
+input { width: 100%; padding: 8px; min-width: 0; }
+.form-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+output { font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+@media (max-width: 400px) { #time { font-size: 21px; } }

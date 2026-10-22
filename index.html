@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1016">
+  <title>Disc Clock</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="clock.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="readout">
+      <time id="time">00:00:00.000</time>
+      <div id="date"></div>
+    </div>
+    <button id="fullscreen" type="button" title="Toggle fullscreen" aria-label="Toggle fullscreen">
+      <span class="fullscreen-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+  <main>
+    <canvas id="clock" role="img" aria-label="Disc clock with rotating year, month, day, hour, minute and second rings, a ten-second light and sixty central rings."></canvas>
+    <noscript>This clock requires JavaScript.</noscript>
+  </main>
+  <footer>
+    <span id="fps">0.0 FPS</span>
+    <details id="location-settings">
+      <summary>Location</summary>
+      <form id="location-form">
+        <label>Latitude<input id="latitude" name="latitude" type="number" min="-90" max="90" step="any" required></label>
+        <label>Longitude<input id="longitude" name="longitude" type="number" min="-180" max="180" step="any" required></label>
+        <div class="form-actions">
+          <button type="submit">Apply</button>
+          <button id="automatic-location" type="button">Use IP location</button>
+        </div>
+        <output id="sun-status" aria-live="polite">Sun data pending</output>
+      </form>
+    </details>
+  </footer>
+</body>
+</html>
