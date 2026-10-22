@@ -155,8 +155,12 @@ class DiscClock(QOpenGLWidget):
         self._label_font = QFont("Segoe UI")
         self._center_font = QFont("Consolas")
         self._small_font = QFont("Consolas")
-        # Repaint right after each buffer swap: with vsync this locks rendering to the display refresh rate.
-        self.frameSwapped.connect(self.update)
+
+        self._limit_fps = 60
+        self._render_timer = QTimer(self)
+        self._render_timer.setTimerType(Qt.TimerType.PreciseTimer)
+        self._render_timer.timeout.connect(self.update)
+        self._render_timer.start(max(1, 1000 // self._limit_fps))
 
     def resizeGL(self, w: int, h: int) -> None:
         radius = min(w, h) / 2 * 0.96
@@ -408,7 +412,7 @@ def main() -> int:
 
     fmt = QSurfaceFormat()
     fmt.setSamples(4)        # MSAA for smooth edges; 8x halves the frame rate on integrated GPUs
-    fmt.setSwapInterval(1)   # vsync
+    fmt.setSwapInterval(0)   # use a timer-driven 60 FPS cap instead of display-refresh-driven redraws
     QSurfaceFormat.setDefaultFormat(fmt)
 
     app = QApplication(sys.argv[:1] + qt_args)
