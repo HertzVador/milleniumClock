@@ -29,7 +29,6 @@ label { display: grid; gap: 5px; }
 input { width: 100%; padding: 8px; min-width: 0; }
 .form-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 output { font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
-#share-qr { display: grid; justify-items: center; gap: 5px; padding: 5px; color: var(--muted); font-size: 10px; text-decoration: none; flex: 0 0 auto; }
+#share-qr { display: block; padding: 5px; flex: 0 0 auto; }
 #share-qr img { display: block; width: 104px; height: 104px; padding: 7px; background: #fff; border-radius: 3px; }
-#share-qr:hover { color: var(--foreground); }
 @media (max-width: 400px) { #time { font-size: 21px; } }
